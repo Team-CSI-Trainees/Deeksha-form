@@ -3,6 +3,7 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const phone = document.getElementById('phone');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -32,12 +33,16 @@ const isValidEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
-
+ const isValidPhone = phone =>{
+    const re =/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+     return re.test(String(phone));
+}
 const validateInputs = () => {
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
     const password2Value = password2.value.trim();
+    const phoneValue = phone.value.trim();
 
     if(usernameValue === '') {
         setError(username, 'Username is required');
@@ -69,5 +74,12 @@ const validateInputs = () => {
         setSuccess(password2);
     }
 
+    if(phone === ''){
+        setError(phone, 'Phone number is required');
+    } else if (!isValidPhone(phoneValue)){
+        setError(phone,'Provide valid phone no.');
+    } else {
+        setSuccess(phone);
+    }
 };
 
