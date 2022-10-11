@@ -82,4 +82,15 @@ const validateInputs = () => {
         setSuccess(phone);
     }
 };
-
+function showAlert() {
+    alert (" Submitted Successfully ");
+  }
+function myfun(){
+    var a=document.form.gender;
+    for(i=0;i<a.length;i++){
+        if(a[i].checked==true)
+        return true;
+    }
+document.getElementById('messages').innerHTML="**Please select anyone";
+return false;
+}
