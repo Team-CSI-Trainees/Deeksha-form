@@ -13,11 +13,11 @@
 </head>
 <body>
     <div class="container">
-        <form id="form" action="/">
+        <form id="form" action="/form.js">
             <h1>Registration</h1>
             <div class="input-control">
                 <label for="username">Username</label>
-                <input id="username" name="username" type="text">
+                <input id="username" name="username" type="text" >
                 <div class="error"></div>
             </div>
 
@@ -26,7 +26,20 @@
                 <input id="email" name="email" type="text">
                 <div class="error"></div>
             </div>
-
+            <div class="input-control">
+                <label for="branch">Branch</label>
+                <select class="branch" required>
+                    <option disabled selected>Branch</option>
+                    <option value="1">CSE</option>
+                    <option value="2">CSE AIML</option>
+                    <option value="3">CSE DS</option>
+                    <option value="4">CSIT</option>
+                    <option value="5">IT</option>
+                    <option value="6">ECE</option>
+                    <option value="7">CIVIL</option>
+                    <option value="8">MECH.</option>
+                </select>
+                </div>
             <div class="input-control">
                 <label for="phone">Phone No.</label>
                 <input id="phone" name="phone" type="tel">
@@ -34,11 +47,12 @@
             </div>
 
             <p>Gender</p>
-            <input id="male" name="gender" type="radio">
+            <!-- required -->
+            <input id="male" name="gender" type="radio" >
             <label for="male">Male</label>
-            <input id="female" name="gender" type="radio">
+            <input id="female" name="gender" type="radio" >
             <label for="female">Female</label>
-            <input id="other" name="gender" type="radio">
+            <input id="other" name="gender" type="radio" >
             <label for="other">Other</label>
 
             <div class="input-control">
@@ -52,7 +66,7 @@
                 <input id="password2"name="password2" type="password">
                 <div class="error"></div>
             </div>
-            <button type="submit" onclick="showAlert()" onsubmit="return myfun()">Submit</button>
+            <button type="submit" onclick="validateInputs()">Submit</button>
         </form>
     </div>
 </body>
