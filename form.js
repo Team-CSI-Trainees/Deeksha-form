@@ -37,17 +37,23 @@ const isValidEmail = email => {
     const re =/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
      return re.test(String(phone));
 }
+
 const validateInputs = () => {
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
     const password2Value = password2.value.trim();
     const phoneValue = phone.value.trim();
-
+    var a;
+    var b;
+    var c;
+    var d;
+    var e;
     if(usernameValue === '') {
         setError(username, 'Username is required');
     } else {
         setSuccess(username);
+       var a=1;
     }
 
     if(emailValue === '') {
@@ -56,6 +62,7 @@ const validateInputs = () => {
         setError(email, 'Provide a valid email address');
     } else {
         setSuccess(email);
+        var b=2;
     }
 
     if(passwordValue === '') {
@@ -64,6 +71,7 @@ const validateInputs = () => {
         setError(password, 'Password must be at least 8 character.')
     } else {
         setSuccess(password);
+       var c=3;
     }
 
     if(password2Value === '') {
@@ -72,25 +80,28 @@ const validateInputs = () => {
         setError(password2, "Passwords doesn't match");
     } else {
         setSuccess(password2);
+       var d=4;
     }
 
-    if(phone === ''){
+    if(phoneValue === ''){
         setError(phone, 'Phone number is required');
     } else if (!isValidPhone(phoneValue)){
         setError(phone,'Provide valid phone no.');
     } else {
         setSuccess(phone);
+       var e=5;
+    }
+    if(a==1&&b==2&&c==3&&d==4&&e==5){
+    showAlert();
     }
 };
 function showAlert() {
-    alert (" Submitted Successfully ");
-  }
-function myfun(){
-    var a=document.form.gender;
-    for(i=0;i<a.length;i++){
-        if(a[i].checked==true)
-        return true;
-    }
-document.getElementById('messages').innerHTML="**Please select anyone";
-return false;
+     console.log(phone.value.trim());
+    console.log(" Submitted Successfully ")
+    alert(" Submitted Successfully ");
+
 }
+
+
+   
+
